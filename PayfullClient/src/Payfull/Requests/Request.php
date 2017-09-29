@@ -5,7 +5,7 @@ namespace Payfull\Requests;
 use Payfull\Config;
 use Payfull\Errors;
 
-class Requests
+class Request
 {
     protected $merchant;
     protected $language = 'tr';
@@ -54,6 +54,10 @@ class Requests
 
     protected static function send($endpoint, $params)
     {
+        echo "<pre>";
+        var_dump($params);
+        echo "</pre>";
+        die;
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $endpoint);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);

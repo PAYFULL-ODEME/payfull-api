@@ -6,7 +6,7 @@ use Payfull\Config;
 use Payfull\Validate;
 use Payfull\Responses\Responses;
 
-class GetIssuer extends Requests
+class GetIssuer extends Request
 {
     const getParam = 'Issuer';
     private $bin;
