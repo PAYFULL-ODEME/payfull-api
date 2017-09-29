@@ -231,4 +231,73 @@ class Validate
         return true;
     }
 
+    public static function requestType($type)
+    {
+        return true;
+    }
+
+    public static function requestActionType($type)
+    {
+        return true;
+    }
+
+    public static function requestPeriod($period)
+    {
+        return true;
+    }
+
+    public static function repetitionCount($count)
+    {
+        return true;
+    }
+
+    public static function recipient($recipient)
+    {
+        return true;
+    }
+
+    public static function date($date)
+    {
+        return true;
+    }
+
+    public static function quantity($quantity)
+    {
+        return true;
+    }
+
+    public static function predefinedPayment($predefinedPayment)
+    {
+        return true;
+    }
+
+    public static function kdv($kdv)
+    {
+        return true;
+    }
+
+    public static function onOff($onOff)
+    {
+        return true;
+    }
+
+    public static function emailText($emailText)
+    {
+        return true;
+    }
+
+    public static function smsText($smsText)
+    {
+        return true;
+    }
+
+    public static function item($item)
+    {
+        return true;
+    }
+
+    public static function freeAmount($freeAmount)
+    {
+        return true;
+    }
 }

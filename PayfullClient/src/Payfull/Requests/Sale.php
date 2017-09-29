@@ -47,10 +47,20 @@ class Sale extends Request
         $this->currency = $currency;
     }
 
+    public function getCurrency()
+    {
+        return $this->currency;
+    }
+
     public function setTotal($total)
     {
         Validate::total($total);
         $this->total = $total;
+    }
+
+    public function getTotal()
+    {
+        return $this->total;
     }
 
     public function setPaymentTitle($paymentTitle)
@@ -59,10 +69,20 @@ class Sale extends Request
         $this->paymentTitle = $paymentTitle;
     }
 
+    public function getPaymentTitle()
+    {
+        return $this->paymentTitle;
+    }
+
     public function setPassiveData($passiveData)
     {
         Validate::passiveData($passiveData);
         $this->passiveData = $passiveData;
+    }
+
+    public function getPassiveData()
+    {
+        return $this->passiveData;
     }
 
     public function setInstallment($installment)
@@ -71,16 +91,31 @@ class Sale extends Request
         $this->installment = $installment;
     }
 
+    public function getInstallment()
+    {
+        return $this->installment;
+    }
+
     public function setBankId($bankId)
     {
         Validate::bankId($bankId);
         $this->bankId = $bankId;
     }
 
+    public function getBankId()
+    {
+        return $this->bankId;
+    }
+
     public function setGateway($gateway)
     {
         Validate::gateway($gateway);
         $this->gateway = $gateway;
+    }
+
+    public function getGateway()
+    {
+        return $this->gateway;
     }
 
     protected function createRequest() {
