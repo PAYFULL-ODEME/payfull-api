@@ -4,7 +4,7 @@ namespace Payfull\Models;
 
 use Payfull\Validate;
 
-class CustomerInfo
+class Customer
 {
 
     private $name;
@@ -66,10 +66,6 @@ class CustomerInfo
     public function getTcNumber()
     {
         return $this->tcNumber;
-    }
-
-    public function createCustomerInfo(){
-
     }
 
 }

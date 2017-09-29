@@ -5,7 +5,7 @@ namespace Payfull\Models;
 
 use Payfull\Validate;
 
-class PaymentCard
+class Card
 {
 
     private $cardHolderName;

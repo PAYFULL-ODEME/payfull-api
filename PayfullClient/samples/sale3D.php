@@ -16,7 +16,7 @@ $request->setBankId('Akbank');
 $request->setGateway('10001');
 $request->setReturnUrl('https://www.payfull.com');
 
-$paymentCard = new Payfull\Models\PaymentCard();
+$paymentCard = new Payfull\Models\Card();
 $paymentCard->setCardHolderName('Payfull Ödeme Çözümleri');
 $paymentCard->setCardNumber('4355084355084358');
 $paymentCard->setExpireMonth('12');
@@ -24,7 +24,7 @@ $paymentCard->setExpireYear('2030');
 $paymentCard->setCvc('000');
 $request->setPaymentCard($paymentCard);
 
-$customer = new Payfull\Models\CustomerInfo();
+$customer = new Payfull\Models\Customer();
 $customer->setName('Faruk');
 $customer->setSurname('Cinemre');
 $customer->setEmail('faruk@payfull.com');

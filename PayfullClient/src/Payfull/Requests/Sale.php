@@ -3,8 +3,8 @@
 namespace Payfull\Requests;
 
 use Payfull\Config;
-use Payfull\Models\CustomerInfo;
-use Payfull\Models\PaymentCard;
+use Payfull\Models\Customer;
+use Payfull\Models\Card;
 use Payfull\Validate;
 use Payfull\Responses\Responses;
 
@@ -24,7 +24,7 @@ class Sale extends Request
         parent::__construct($config);
     }
 
-    public function setPaymentCard(PaymentCard $paymentCard){
+    public function setPaymentCard(Card $paymentCard){
         $this->params['cc_name']    = $paymentCard->getCardHolderName();
         $this->params['cc_number']  = $paymentCard->getCardNumber();
         $this->params['cc_month']   = $paymentCard->getExpireMonth();
@@ -32,7 +32,7 @@ class Sale extends Request
         $this->params['cc_cvc']     = $paymentCard->getCvc();
     }
 
-    public function setCustomerInfo(CustomerInfo $customerInfo)
+    public function setCustomerInfo(Customer $customerInfo)
     {
         $this->params['customer_firstname'] = $customerInfo->getName();
         $this->params['customer_lastname']  = $customerInfo->getSurname();

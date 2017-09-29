@@ -201,4 +201,34 @@ class Validate
         return true;
     }
 
+    public static function password($password)
+    {
+        return true;
+    }
+
+    public static function address($address)
+    {
+        return true;
+    }
+
+    public static function company($company)
+    {
+        return true;
+    }
+
+    public static function taxNumber($taxNumber)
+    {
+        return true;
+    }
+
+    public static function taxOffice($taxOffice)
+    {
+        return true;
+    }
+
+    public static function token($token)
+    {
+        return true;
+    }
+
 }
