@@ -1,4 +1,5 @@
 [![Güncel Son Sürüm için](https://github.com/T4U/payfull-api)
+[![Api Dökümantasyonu için](https://payfull.com/api-docs/index.html)
 
 Payfull üyeliği açmak için https://payfull.com
 
@@ -92,3 +93,5 @@ Card Number      | Bank                       | Expiration Date         | CVC
 5400245400245409 | INGBANK-MASTER             | 12/2030                 | 000
 5342614723204016 | GARANTI                    | 01/2017                 | 753
 4506347048543223 | YKB                        | 12/2030                 | 000
+
+[![Daha fazla kart örneği için](https://payfull.com/api-docs/testCards.html)
