@@ -1,4 +1,3 @@
-[![Güncel Son Sürüm için](https://github.com/T4U/payfull-api)]
 
 [![Api Dökümantasyonu için](https://payfull.com/api-docs/index.html)]
 
@@ -11,8 +10,6 @@ PHP 5.6 ve sonrası
 # Yükleme 
 
 ### Manuel Yükleme
-
-İndirmeyi buradan yapabilirsiniz [son sürüm](https://github.com/T4U/payfull-api).
 
 ```php
 require_once('/dosyanın/bulunduğu/yol/PayfullClient/src/Payfull/loader.php); 
@@ -57,7 +54,7 @@ $customer->setName('Faruk');
 $customer->setSurname('Cinemre');
 $customer->setEmail('faruk@payfull.com');
 $customer->setPhoneNumber('05399999999');
-$customer->setTcNumber('37418133976');
+$customer->setTcNumber('37418133976'); // Opsiyonel
 $request->setCustomerInfo($customer);
 
 # Her Request için ihtiyacınız olan execute fonksiyonuyla ihtiyacınız olan bilgileri elde edebilirsiniz.

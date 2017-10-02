@@ -21,7 +21,7 @@ $customer->setName('Faruk');
 $customer->setSurname('Cinemre');
 $customer->setEmail('faruk@payfull.com');
 $customer->setPhoneNumber('05399999999');
-$customer->setTcNumber('37418133976');
+$customer->setTcNumber('37418133976');  // Opsiyonel
 $request->setCustomerInfo($customer);
 
 $response = $request->execute();

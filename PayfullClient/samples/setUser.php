@@ -18,7 +18,7 @@ $user->setAddress('istanbul / Turkey');
 $user->setCompany('Payfull');
 $user->setTaxNumber('123456');
 $user->setTaxOffice('123456');
-$user->setTcNumber('12345678945');
+$user->setTcNumber('12345678945');  // Opsiyonel
 $request->setUserInfo($user);
 
 
