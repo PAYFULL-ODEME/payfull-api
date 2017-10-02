@@ -1,4 +1,5 @@
-[![Güncel Son Sürüm için](https://github.com/T4U/payfull-api)[]]
+[![Güncel Son Sürüm için](https://github.com/T4U/payfull-api)]
+
 [![Api Dökümantasyonu için](https://payfull.com/api-docs/index.html)]
 
 Payfull üyeliği açmak için https://payfull.com
