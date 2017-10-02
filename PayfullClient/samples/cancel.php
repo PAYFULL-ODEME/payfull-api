@@ -8,7 +8,7 @@ $config->setApiUrl("https://test.payfull.com/integration/api/v1");
 
 $request = new Payfull\Requests\Cancel($config);
 $request->setPassiveData('Ödeme ile ilgili bilgiler');
-$request->setTransactionId('P_F_87f1701a66_137613230');
+$request->setTransactionId('P_F_1d66477942_c7b6159c7');
 
 $response = $request->execute();
 

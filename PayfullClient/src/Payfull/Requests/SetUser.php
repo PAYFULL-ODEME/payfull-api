@@ -9,12 +9,12 @@ use Payfull\Models\User;
 
 class SetUser extends Request {
 
-    const type = 'Set';
-    const setParam = 'User';
+    const TYPE = 'Set';
+    const SETPARAM = 'User';
 
     public function __construct(Config $config)
     {
-        parent::__construct($config);
+        parent::__construct($config, self::TYPE);
     }
 
     public function setUserInfo(User $user)
@@ -32,14 +32,14 @@ class SetUser extends Request {
         $this->params['user_tc']         = $user->getTcNumber();
     }
 
-    protected function createRequest() {
+    protected function createRequest()
+    {
+        $this->params['set_param']  = self::SETPARAM;
         parent::createRequest();
-        $this->params['type']       = self::type;
-        $this->params['set_param']  = self::setParam;
-        $this->params['hash']       = self::generateHash($this->params,$this->password);
     }
 
-    public function execute(){
+    public function execute()
+    {
         $this->createRequest();
         $response = self::send($this->endpoint,$this->params);
         return Responses::processResponse($response);

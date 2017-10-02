@@ -9,4 +9,15 @@ class Responses
     {
         return json_decode($response,TRUE);
     }
+
+    public static function process3DResponse($response)
+    {
+        if(strpos($response, '<form'))
+        {
+            echo $response;
+            exit;
+        } else {
+            return self::processResponse($response);
+        }
+    }
 }

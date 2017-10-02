@@ -13,16 +13,19 @@ class Request
     protected $password;
     protected $endpoint;
     protected $params;
+    protected $type;
 
-    protected function __construct(Config $config)
+    protected function __construct(Config $config , $type)
     {
+        $this->params['type'] = $type;
         $this->merchant = $config->getApiKey();
         $this->clientIp = self::getClientIp();
         $this->password = $config->getApiSecret();
         $this->endpoint = $config->getApiUrl();
     }
 
-    protected static function getClientIp(){
+    protected static function getClientIp()
+    {
         $ipaddress = '';
         if (getenv('HTTP_CLIENT_IP'))
             $ipaddress = getenv('HTTP_CLIENT_IP');
@@ -79,6 +82,9 @@ class Request
         $this->params['merchant']  = $this->merchant;
         $this->params['language']  = $this->language;
         $this->params['client_ip'] = $this->clientIp;
+        $this->params['hash']      = self::generateHash($this->params,$this->password);
     }
+
+
 
 }

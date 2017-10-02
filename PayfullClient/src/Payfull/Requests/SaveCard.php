@@ -5,20 +5,22 @@ namespace Payfull\Requests;
 use Payfull\Config;
 use Payfull\Models\Card;
 use Payfull\Validate;
+use Payfull\Responses\Responses;
 
 class SaveCard extends Request {
 
-    const type = 'Set';
-    const setParam = 'Card';
-    const cardOperation = 'add';
+    const TYPE = 'Set';
+    const SETPARAM = 'Card';
+    const CARDOPERATION = 'add';
     private $userEmail;
 
     public function __construct(Config $config)
     {
-        parent::__construct($config);
+        parent::__construct($config, self::TYPE);
     }
 
-    public function setPaymentCard(Card $paymentCard){
+    public function setPaymentCard(Card $paymentCard)
+    {
         $this->params['cc_name']    = $paymentCard->getCardHolderName();
         $this->params['cc_number']  = $paymentCard->getCardNumber();
         $this->params['cc_month']   = $paymentCard->getExpireMonth();
@@ -37,16 +39,16 @@ class SaveCard extends Request {
         return $this->userEmail;
     }
 
-    protected function createRequest() {
-        parent::createRequest();
-        $this->params['type']           = self::type;
-        $this->params['set_param']      = self::setParam;
-        $this->params['card_op']        = self::cardOperation;
+    protected function createRequest()
+    {
+        $this->params['set_param']      = self::SETPARAM;
+        $this->params['card_op']        = self::CARDOPERATION;
         $this->params['user_email']     = $this->userEmail;
-        $this->params['hash']           = self::generateHash($this->params,$this->password);
+        parent::createRequest();
     }
 
-    public function execute(){
+    public function execute()
+    {
         $this->createRequest();
         $response = self::send($this->endpoint,$this->params);
         return Responses::processResponse($response);

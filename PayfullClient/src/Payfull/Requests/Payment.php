@@ -10,8 +10,8 @@ use Payfull\Validate;
 
 class Payment extends Request {
 
-    const type = 'Set';
-    const set_param = 'Request';
+    const TYPE = 'Set';
+    const SETPARAM = 'Request';
     private $paymentTitle;
     private $recipient;
     private $startDate;
@@ -26,7 +26,7 @@ class Payment extends Request {
 
     public function __construct(Config $config)
     {
-        parent::__construct($config);
+        parent::__construct($config, self::TYPE);
     }
 
     public function setPaymentTitle($title)
@@ -111,10 +111,9 @@ class Payment extends Request {
         $this->smsText = $smsText;
     }
 
-    protected function createRequest() {
-        parent::createRequest();
-        $this->params['type']                   = self::type;
-        $this->params['set_param']              = self::set_param;
+    protected function createRequest()
+    {
+        $this->params['set_param']              = self::SETPARAM;
         $this->params['title']                  = $this->paymentTitle;
         $this->params['recipient']              = $this->recipient;
         $this->params['start_date']             = $this->startDate;
@@ -126,10 +125,11 @@ class Payment extends Request {
         $this->params['via_email_sms']          = $this->viaEmailSms;
         $this->params['email_text']             = $this->emailText;
         $this->params['sms_text']               = $this->smsText;
-        $this->params['hash']               = self::generateHash($this->params,$this->password);
+        parent::createRequest();
     }
 
-    public function execute(){
+    public function execute()
+    {
         $this->createRequest();
         $response = self::send($this->endpoint,$this->params);
         return Responses::processResponse($response);

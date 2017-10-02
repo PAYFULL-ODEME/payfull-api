@@ -8,13 +8,13 @@ use Payfull\Responses\Responses;
 
 class Cancel extends Request {
 
-    const type = 'Cancel';
+    const TYPE = 'Cancel';
     private $transactionId;
     private $passiveData;
 
     public function __construct(Config $config)
     {
-        parent::__construct($config);
+        parent::__construct($config, self::TYPE);
     }
 
     public function setPassiveData($passiveData)
@@ -29,15 +29,15 @@ class Cancel extends Request {
         $this->transactionId = $transactionId;
     }
 
-    protected function createRequest() {
-        parent::createRequest();
-        $this->params['type']               = self::type;
+    protected function createRequest()
+    {
         $this->params['passive_data']       = $this->passiveData;
         $this->params['transaction_id']     = $this->transactionId;
-        $this->params['hash']       = self::generateHash($this->params,$this->password);
+        parent::createRequest();
     }
 
-    public function execute(){
+    public function execute()
+    {
         $this->createRequest();
         $response = self::send($this->endpoint,$this->params);
         return Responses::processResponse($response);

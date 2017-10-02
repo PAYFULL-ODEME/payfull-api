@@ -37,9 +37,8 @@ class SaleWithSavedCard extends Sale {
         return $this->token;
     }
 
-    protected function createRequest() {
-        parent::createRequest();
-        $this->params['type']               = self::type;
+    protected function createRequest()
+    {
         $this->params['payment_title']      = $this->getPaymentTitle();
         $this->params['passive_data']       = $this->getPassiveData();
         $this->params['currency']           = $this->getCurrency();
@@ -48,10 +47,11 @@ class SaleWithSavedCard extends Sale {
         $this->params['bank_id']            = $this->getBankId();
         $this->params['gateway']            = $this->getGateway();
         $this->params['cc_token']           = $this->token;
-        $this->params['hash']               = self::generateHash($this->params,$this->password);
+        parent::createRequest();
     }
 
-    public function execute(){
+    public function execute()
+    {
         $this->createRequest();
         $response = self::send($this->endpoint,$this->params);
         return Responses::processResponse($response);

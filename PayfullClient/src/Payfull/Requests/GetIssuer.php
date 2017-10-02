@@ -8,12 +8,13 @@ use Payfull\Responses\Responses;
 
 class GetIssuer extends Request
 {
-    const getParam = 'Issuer';
+    const TYPE = 'Get';
+    const GETPARAM = 'Issuer';
     private $bin;
-    const type = 'Get';
 
-    public function __construct(Config $config) {
-        parent::__construct($config);
+    public function __construct(Config $config)
+    {
+        parent::__construct($config, self::TYPE);
     }
 
     public function setBin($bin)
@@ -22,19 +23,17 @@ class GetIssuer extends Request
         $this->bin = $bin;
     }
 
+    protected function createRequest()
+    {
+        $this->params['get_param']  = self::GETPARAM;
+        $this->params['bin']        = $this->bin;
+        parent::createRequest();
+    }
+
     public function execute()
     {
         $this->createRequest();
         $response = self::send($this->endpoint,$this->params);
         return Responses::processResponse($response);
-    }
-
-    protected function createRequest()
-    {
-        parent::createRequest();
-        $this->params['get_param']  = self::getParam;
-        $this->params['bin']        = $this->bin;
-        $this->params['type']       = self::type;
-        $this->params['hash']       = self::generateHash($this->params,$this->password);
     }
 }

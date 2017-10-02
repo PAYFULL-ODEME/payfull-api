@@ -10,7 +10,7 @@ use Payfull\Responses\Responses;
 
 class Sale extends Request
 {
-    const type = 'Sale';
+    const TYPE = 'Sale';
     private $paymentTitle;
     private $passiveData;
     private $currency;
@@ -21,10 +21,11 @@ class Sale extends Request
 
     public function __construct(Config $config)
     {
-        parent::__construct($config);
+        parent::__construct($config, self::TYPE);
     }
 
-    public function setPaymentCard(Card $paymentCard){
+    public function setPaymentCard(Card $paymentCard)
+    {
         $this->params['cc_name']    = $paymentCard->getCardHolderName();
         $this->params['cc_number']  = $paymentCard->getCardNumber();
         $this->params['cc_month']   = $paymentCard->getExpireMonth();
@@ -118,9 +119,8 @@ class Sale extends Request
         return $this->gateway;
     }
 
-    protected function createRequest() {
-        parent::createRequest();
-        $this->params['type']               = self::type;
+    protected function createRequest()
+    {
         $this->params['payment_title']      = $this->paymentTitle;
         $this->params['passive_data']       = $this->passiveData;
         $this->params['currency']           = $this->currency;
@@ -128,11 +128,11 @@ class Sale extends Request
         $this->params['installments']       = $this->installment;
         $this->params['bank_id']            = $this->bankId;
         $this->params['gateway']            = $this->gateway;
-        $this->params['hash']       = self::generateHash($this->params,$this->password);
-
+        parent::createRequest();
     }
 
-    public function execute(){
+    public function execute()
+    {
         $this->createRequest();
         $response = self::send($this->endpoint,$this->params);
         return Responses::processResponse($response);

@@ -9,14 +9,14 @@ use Payfull\Responses\Responses;
 
 class ReturnTransaction extends Request {
 
-    const type = 'Return';
+    const TYPE = 'Return';
     private $transactionId;
     private $passiveData;
     private $total;
 
     public function __construct(Config $config)
     {
-        parent::__construct($config);
+        parent::__construct($config, self::TYPE);
     }
 
     public function setPassiveData($passiveData)
@@ -37,16 +37,16 @@ class ReturnTransaction extends Request {
         $this->total = $total;
     }
 
-    protected function createRequest() {
-        parent::createRequest();
-        $this->params['type']               = self::type;
+    protected function createRequest()
+    {
         $this->params['passive_data']       = $this->passiveData;
         $this->params['transaction_id']     = $this->transactionId;
-        $this->params['total']     = $this->total;
-        $this->params['hash']       = self::generateHash($this->params,$this->password);
+        $this->params['total']              = $this->total;
+        parent::createRequest();
     }
 
-    public function execute(){
+    public function execute()
+    {
         $this->createRequest();
         $response = self::send($this->endpoint,$this->params);
         return Responses::processResponse($response);

@@ -7,22 +7,22 @@ use Payfull\Responses\Responses;
 
 class ExtraInstallments extends Request {
 
-    const type = 'Get';
-    const getParam = 'ExtraInstallmentsList';
+    const TYPE = 'Get';
+    const GETPARAM = 'ExtraInstallmentsList';
 
     public function __construct(Config $config)
     {
-        parent::__construct($config);
+        parent::__construct($config, self::TYPE);
     }
 
-    protected function createRequest() {
+    protected function createRequest()
+    {
+        $this->params['get_param']  = self::GETPARAM;
         parent::createRequest();
-        $this->params['type']       = self::type;
-        $this->params['get_param']  = self::getParam;
-        $this->params['hash']       = self::generateHash($this->params,$this->password);
     }
 
-    public function execute(){
+    public function execute()
+    {
         $this->createRequest();
         $response = self::send($this->endpoint,$this->params);
         return Responses::processResponse($response);
