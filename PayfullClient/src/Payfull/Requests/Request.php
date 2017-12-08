@@ -45,7 +45,11 @@ class Request
     }
 
     protected static function generateHash($params,$password)
-    {
+    {   
+        
+        echo "<pre>";
+        print_r($params);
+        die;
         ksort($params);
         $hashString = "";
         foreach ($params as $key=>$val) {
@@ -56,7 +60,7 @@ class Request
     }
 
     protected static function send($endpoint, $params)
-    {
+    {   
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $endpoint);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
