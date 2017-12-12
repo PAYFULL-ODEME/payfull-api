@@ -37,6 +37,7 @@ class Sale3D extends Sale
     public function createRequest()
     {
         $this->params['return_url'] = $this->returnUrl;
+        $this->params['use3d']      = self::USE3D;
         parent::createRequest();
     }
 

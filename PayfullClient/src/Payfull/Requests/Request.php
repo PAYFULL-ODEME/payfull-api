@@ -56,7 +56,7 @@ class Request
     }
 
     protected static function send($endpoint, $params)
-    {   
+    {
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $endpoint);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
