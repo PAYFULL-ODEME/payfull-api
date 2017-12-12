@@ -45,11 +45,7 @@ class Request
     }
 
     protected static function generateHash($params,$password)
-    {   
-        
-        echo "<pre>";
-        print_r($params);
-        die;
+    {
         ksort($params);
         $hashString = "";
         foreach ($params as $key=>$val) {
