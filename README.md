@@ -47,7 +47,7 @@ $paymentCard->setExpireYear('2030');
 $paymentCard->setCvc('000');
 $request->setPaymentCard($paymentCard);
 
-# Satış işlemini yapan kullanıcının bilgilerini set edip satış objesinie göndermelisiniz.
+# Satış işlemini yapan kullanıcının bilgilerini set edip satış objesine göndermelisiniz.
 
 $customer = new Payfull\Models\Customer();
 $customer->setName('Faruk');

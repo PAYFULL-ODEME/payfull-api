@@ -67,8 +67,6 @@ class Request
         curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($params));
 
         $response = curl_exec($ch);
-        $curlerrcode = curl_errno($ch);
-        $curlerr = curl_error($ch);
 
         if($response == false) {
             Errors::throwError('RESPONSE_IS_FALSE');
