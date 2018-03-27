@@ -119,6 +119,12 @@ class Sale extends Request
         return $this->gateway;
     }
 
+    public function setMerchantTrxId($merchant_trx_id)
+    {
+        Validate::transactionId($merchant_trx_id);
+        $this->merchantTrxId;
+    }
+
     protected function createRequest()
     {
         $this->params['payment_title']      = $this->paymentTitle;

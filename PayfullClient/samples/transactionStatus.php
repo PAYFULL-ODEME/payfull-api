@@ -7,7 +7,7 @@ $config->setApiSecret("123456");
 $config->setApiUrl("https://dev.payfull.com/integration/api/v1");
 
 $request = new Payfull\Requests\TransactionStatus($config);
-$request->setTransactionId('P_F_e2da8f7c25_dbab58efe');
+$request->setMerchantTrxId('xxx-0411684-0354354');
 $request->setPassiveData('xxx xx xx');
 $response = $request->execute();
 

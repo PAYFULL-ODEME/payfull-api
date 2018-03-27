@@ -11,7 +11,6 @@ class TransactionStatus extends Request
     const TYPE = 'Get';
     const GETPARAM = 'TransactionStatus';
 
-    private $transactionId;
     private $passiveData;
 
     public function __construct(Config $config)
@@ -19,10 +18,10 @@ class TransactionStatus extends Request
         parent::__construct($config, self::TYPE);
     }
 
-    public function setTransactionId($trx)
+    public function setMerchantTrxId($trx)
     {
         Validate::transactionId($trx);
-        $this->transactionId = $trx;
+        $this->merchantTrxId = $trx;
     }
 
     public function setPassiveData($passiveData)

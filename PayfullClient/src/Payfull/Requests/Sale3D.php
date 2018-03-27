@@ -27,6 +27,12 @@ class Sale3D extends Sale
         return $this->returnUrl;
     }
 
+    public function setMerchantTrxId($merchant_trx_id)
+    {
+        Validate::transactionId($merchant_trx_id);
+        $this->merchantTrxId;
+    }
+
     public function execute()
     {
         $this->createRequest();

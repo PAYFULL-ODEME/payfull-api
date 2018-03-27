@@ -14,6 +14,7 @@ class Request
     protected $endpoint;
     protected $params;
     protected $type;
+    protected $merchantTrxId;
 
     protected function __construct(Config $config , $type)
     {
@@ -82,7 +83,6 @@ class Request
         $this->params['client_ip'] = $this->clientIp;
         $this->params['hash']      = self::generateHash($this->params,$this->password);
     }
-
 
 
 }

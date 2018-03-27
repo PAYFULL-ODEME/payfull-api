@@ -29,6 +29,12 @@ class Cancel extends Request {
         $this->transactionId = $transactionId;
     }
 
+    public function setMerchantTrxId($merchant_trx_id)
+    {
+        Validate::transactionId($merchant_trx_id);
+        $this->merchantTrxId;
+    }
+
     protected function createRequest()
     {
         $this->params['passive_data']       = $this->passiveData;

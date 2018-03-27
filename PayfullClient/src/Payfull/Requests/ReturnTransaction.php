@@ -37,6 +37,12 @@ class ReturnTransaction extends Request {
         $this->total = $total;
     }
 
+    public function setMerchantTrxId($merchant_trx_id)
+    {
+        Validate::transactionId($merchant_trx_id);
+        $this->merchantTrxId;
+    }
+
     protected function createRequest()
     {
         $this->params['passive_data']       = $this->passiveData;

@@ -14,6 +14,7 @@ $request->setTotal('13.00');
 $request->setInstallment('1');
 $request->setBankId('Akbank');
 $request->setGateway('10001');
+$request->setMerchantTrxId('xxx-0411684-0354354');  // Opsiyonel
 
 $paymentCard = new Payfull\Models\Card();
 $paymentCard->setCardHolderName('Payfull Ödeme Çözümleri');

@@ -14,6 +14,7 @@ $request->setTotal('13.00');
 $request->setInstallment('1');
 $request->setBankId('Akbank');
 $request->setGateway('10001');
+$request->setMerchantTrxId('xxx-015435-065461'); // Optional
 $request->setReturnUrl('http://localhost:8080/payfull/api/payfull-api/PayfullClient/samples/return3dResponse.php');
 
 $paymentCard = new Payfull\Models\Card();
