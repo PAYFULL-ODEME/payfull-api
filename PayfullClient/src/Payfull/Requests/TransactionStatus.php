@@ -33,7 +33,7 @@ class TransactionStatus extends Request
     protected function createRequest()
     {
         $this->params['get_param']       = self::GETPARAM;
-        $this->params['transaction_id']  = $this->transactionId;
+        $this->params['merchant_trx_id']  = $this->merchantTrxId;
         $this->params['passive_data']    = $this->passiveData;
         parent::createRequest();
     }
