@@ -134,6 +134,9 @@ class Sale extends Request
         $this->params['installments']       = $this->installment;
         $this->params['bank_id']            = $this->bankId;
         $this->params['gateway']            = $this->gateway;
+        if(isset($this->merchantTrxId)){
+            $this->params['merchant_trx_id'] = $this->merchantTrxId;
+        }
         parent::createRequest();
     }
 
