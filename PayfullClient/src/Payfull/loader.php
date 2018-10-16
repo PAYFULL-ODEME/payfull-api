@@ -4,11 +4,11 @@ include_once ('Config.php');
 include_once ('Validate.php');
 include_once ('Errors.php');
 
-include_once ('Models\Card.php');
-include_once ('Models\Customer.php');
-include_once ('Models\User.php');
-include_once ('Models\PaymentItem.php');
-include_once ('Models\RequestType.php');
+include_once ('Models/Card.php');
+include_once ('Models/Customer.php');
+include_once ('Models/User.php');
+include_once ('Models/PaymentItem.php');
+include_once ('Models/RequestType.php');
 
 include_once ('Requests/Request.php');
 include_once ('Requests/GetIssuer.php');
