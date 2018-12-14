@@ -53,7 +53,7 @@ class Request
             $l = mb_strlen($val);
             if($l) $hashString .= $l . $val;
         }
-        return hash_hmac("sha1", $hashString, $password);
+        return hash_hmac("sha256", $hashString, $password);
     }
 
     protected static function send($endpoint, $params)
