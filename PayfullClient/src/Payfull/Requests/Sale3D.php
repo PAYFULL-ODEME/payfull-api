@@ -30,7 +30,7 @@ class Sale3D extends Sale
     public function setMerchantTrxId($merchant_trx_id)
     {
         Validate::transactionId($merchant_trx_id);
-        $this->merchantTrxId;
+        $this->merchantTrxId = $merchant_trx_id;
     }
 
     public function execute()
