@@ -122,7 +122,7 @@ class Sale extends Request
     public function setMerchantTrxId($merchant_trx_id)
     {
         Validate::transactionId($merchant_trx_id);
-        $this->merchantTrxId;
+        $this->merchantTrxId = $merchant_trx_id;
     }
 
     protected function createRequest()
