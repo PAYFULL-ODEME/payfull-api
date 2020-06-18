@@ -12,7 +12,7 @@ class Responses
 
     public static function process3DResponse($response)
     {
-        if(strpos($response, '<form'))
+        if(strpos($response, '<form') !== False OR strpos($response, '<html') !== False)
         {
             echo $response;
             exit;
